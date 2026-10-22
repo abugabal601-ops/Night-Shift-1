@@ -1,0 +1,8 @@
+{
+  "appId": "com.nightshift.horror",
+  "appName": "NIGHT SHIFT",
+  "webDir": "public",
+  "server": {
+    "androidScheme": "https"
+  }
+}

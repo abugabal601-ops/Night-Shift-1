@@ -1,0 +1,12 @@
+{
+  "name": "night-shift-horror",
+  "version": "0.2.0",
+  "private": true,
+  "description": "A small browser-first 3D cooperative horror prototype",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
