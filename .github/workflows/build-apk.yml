@@ -22,7 +22,8 @@ jobs:
 
       - name: Build APK
         run: |
-          npm install @capacitor/core @capacitor/cli @capacitor/android
+          npm install
+          npm install @capacitor/core @capacitor/cli @capacitor/android --registry=https://registry.npmjs.org/
           npx cap add android
           npx cap sync android
           cd android
