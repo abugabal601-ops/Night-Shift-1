@@ -45,11 +45,12 @@ jobs:
 
       - name: Build Android APK
         run: |
+          npx cap add android
           npx cap sync android
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
-
+          
       - name: Upload APK
         if: success()
         uses: actions/upload-artifact@v4
