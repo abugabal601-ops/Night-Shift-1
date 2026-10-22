@@ -20,12 +20,22 @@ jobs:
         with:
           node-version: 22
 
-      - name: Check project files
+      - name: Prepare web files
         run: |
-          ls -la
-          test -f package.json
-          test -f capacitor.config.json
-          test -f index.html || test -f public/index.html
+          mkdir -p public
+          if [ -f index.html ]; then
+            cp index.html public/
+          fi
+          if [ -f style.css ]; then
+            cp style.css public/
+          fi
+          if [ -f game.js ]; then
+            cp game.js public/
+          fi
+          if [ -d assets ]; then
+            cp -r assets public/
+          fi
+          test -f public/index.html
 
       - name: Install dependencies
         run: npm install --registry=https://registry.npmjs.org/
@@ -35,7 +45,6 @@ jobs:
 
       - name: Build Android APK
         run: |
-          npx cap add android
           npx cap sync android
           cd android
           chmod +x gradlew
